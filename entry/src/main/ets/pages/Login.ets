@@ -1,6 +1,6 @@
 import router from '@ohos.router';
 import Const from '../constants/CommonContent'
-
+import hilog from '../utils/Logger';
 @Entry
 @Component
 struct Login {
@@ -113,6 +113,8 @@ struct Login {
             }
             else if (this.account != router.getParams()['accountparm']||this.password != router.getParams()['pwdParms'])
             {
+
+              hilog.error('login system',`${this.account} login fail!`)
               AlertDialog.show(
                 {
                   title: '提示',
@@ -132,8 +134,10 @@ struct Login {
               )
             }
             else {
+              hilog.info('login system',`${this.account} login ok!`)
               router.pushUrl({
-                url: 'pages/Home'
+                url: 'pages/LoadingPage',
+                params:{acoParms:this.account}
               })
 
             }

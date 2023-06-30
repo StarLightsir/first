@@ -186,9 +186,13 @@ struct Register {
                   autoCancel: true,
                   alignment:DialogAlignment.Center,
                   confirm:{
-                    value:'关闭',
+                    value:'跳转到登录界面',
                     action:()=>{
-                      console.info('confirm')
+                      console.info('confirm');
+                      router.pushUrl({
+                        url:('pages/Login'),
+                        params:{accountparm:this.account,pwdParms:this.password}
+                      })
                     }
                   },
                   cancel: () => {
@@ -197,10 +201,10 @@ struct Register {
                 }
               )
 
-              router.pushUrl({
-                url:('pages/Login'),
-                params:{accountparm:this.account,pwdParms:this.password}
-              })
+              // router.pushUrl({
+              //   url:('pages/Login'),
+              //   params:{accountparm:this.account,pwdParms:this.password}
+              // })
 
             }
 
@@ -210,7 +214,10 @@ struct Register {
           top: 25
         })
           .onClick(() => {
-            router.back()
+            router.pushUrl({
+              url:('pages/Login'),
+              params:{accountparm:this.account,pwdParms:this.password}
+            })
 
           })
       }

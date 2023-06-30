@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import CommonConstants from '../common/constants/CommonConstants';
-import ItemData from '../common/bean/ItemData';
+import CommonConstants from '../constants/CommonContent';
+import ItemData from '../bean/ItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 
 /**
@@ -107,9 +107,9 @@ export default struct Setting {
           .width(CommonConstants.BUTTON_WIDTH)
           .height($r('app.float.login_button_height'))
           .fontSize($r('app.float.normal_text_size'))
-          .fontColor($r('app.color.setting_button_fontColor'))
+          .fontColor(0XD8BFD8)
           .fontWeight(FontWeight.Medium)
-          .backgroundColor($r('app.color.setting_button_backgroundColor'))
+          .backgroundColor(0XD8BFD8)
           .margin({ bottom: $r('app.float.setting_button_bottom')})
       }
       .height(CommonConstants.FULL_PARENT)

@@ -1,5 +1,3 @@
-
-
 import CommonConstants from '../constants/CommonContent';
 import Home from "../view/Home"
 import Setting from "../view/Setting"

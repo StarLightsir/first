@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
-import CommonConstants from '../common/constants/CommonConstants';
+import CommonConstants from '../constants/CommonContent';
 import mainViewModel from '../viewmodel/MainViewModel';
-import ItemData from '../common/bean/ItemData';
-
+import ItemData from '../bean/ItemData';
+import Const from '../constants/CommonContent'
 /**
  * Home tab content
  */
+@Entry
 @Component
 export default struct Home {
   private swiperController: SwiperController = new SwiperController();
@@ -27,16 +28,24 @@ export default struct Home {
   build() {
     Scroll() {
       Column({ space: CommonConstants.COMMON_SPACE }) {
-        Column(){
-          Text($r('app.string.mainPage_tabTitles_home'))
-            .fontWeight(FontWeight.Medium)
-            .fontSize($r('app.float.page_title_text_size'))
-            .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
-            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
-        }
-        .width(CommonConstants.FULL_PARENT)
-        .alignItems(HorizontalAlign.Start)
+        Row() {
 
+            TextInput({ placeholder: '搜索...' })
+              .width('80%')
+              .height(40)
+              .backgroundColor('#FFFFFF')
+              .margin({ top: 10,right: 8 })
+
+            Image($r("app.media.ic_public_add_norm"))
+              .width(20)
+              .height(24)
+              .margin({ left: 10})
+              // .padding({right:$r('app.float.mainPage_tabTitles_padding')})
+              //  .align(Alignment.End)
+          // .width(CommonConstants.FULL_PARENT)
+
+          // .alignItems(HorizontalAlign.Start)
+        }
         Swiper(this.swiperController) {
           ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
             Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))
@@ -84,7 +93,7 @@ export default struct Home {
                 Text(secondItem.others)
                   .margin({ top: $r('app.float.home_list_margin') })
                   .fontSize($r('app.float.little_text_size'))
-                  .fontColor($r('app.color.home_grid_fontColor'))
+                  .fontColor(0XD8BFD8)
               }
               .alignItems(HorizontalAlign.Start)
             }
@@ -107,5 +116,6 @@ export default struct Home {
       }
     }
     .height(CommonConstants.FULL_PARENT)
+    .backgroundColor(0xd8bfd8)
   }
 }

@@ -2,7 +2,8 @@
   "src": [
     "pages/Login",
     "pages/Register",
-    "pages/Home"
+    "pages/Home",
+    "pages/LoadingPage"
 
   ]
 }
